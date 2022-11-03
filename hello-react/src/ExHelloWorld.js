@@ -1,13 +1,29 @@
 import { Component } from "react";
 
 class ExHelloWorld extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "Romain",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      name: event.target.value,
+    });
+  }
   render() {
-    return <div className="ExHelloWorld">
-      <label>Name:</label>
-      <input type="text" placeholder="Enter a name here" />
-      <hr />
-      <h1>Hello !</h1>
-    </div>
+    const { name } = this.state;
+
+    return (
+      <div className="ExHelloWorld">
+        <label>Name:</label>
+        <input type="text" placeholder="Enter a name here" value={name} onChange={this.handleChange} />
+        <hr />
+        <h1>Hello {name}!</h1>
+      </div>
+    );
   }
 }
 
