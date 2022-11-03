@@ -15,6 +15,7 @@ console.log('typeof global', typeof global); // object
 
 // l'objet est extensible
 // ajouter une clé/valeur à Math par exemple
+// (MAUVAISE PRATIQUE de toucher à des objets qu'on a pas créé)
 console.log('Math.sum', Math.sum); // undefined
 Math.sum = (a, b) => a + b;
 console.log('Math.sum(1, 2)', Math.sum(1, 2)); // 3
