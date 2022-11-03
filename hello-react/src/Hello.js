@@ -4,7 +4,7 @@
 </div>
 */
 
-import React from "react";
+// import React from "react";
 
 // Sans React avec l'API DOM
 // function Hello() {
@@ -35,10 +35,20 @@ import React from "react";
 // }
 
 // React avec JSX
-function Hello() {
+// function Hello(props) {
+//   const name = props.name ?? 'Romain';
+//   return (
+//     <div className="Hello">
+//       Hello <span id="name">{name}</span>
+//     </div>
+//   );
+// }
+
+// En destructurant props
+function Hello({ name = 'Romain', age = 0, active = false }) {
   return (
     <div className="Hello">
-      Hello <span id="name">Romain</span>
+      Hello <span id="name">{name}</span>
     </div>
   );
 }
