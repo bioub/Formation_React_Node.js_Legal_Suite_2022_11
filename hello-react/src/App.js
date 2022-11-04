@@ -6,6 +6,7 @@ import ExHelloWorld from './ExHelloWorld';
 import ExMultiStateButton from './ExMultiStateButton';
 import Hello from './Hello';
 import Select from './Select';
+import Todos from './todos/Todos';
 
 function App() {
   const prenom = 'Romain';
@@ -23,6 +24,7 @@ function App() {
       <ExMultiStateButton items={['Rouge', 'Vert', 'Bleu']} />
       <Select items={['Rouge', 'Vert', 'Bleu']} selected={color} onSelected={(newColor) => setColor(newColor)} />
       <p>Vous avez sélectionné : {color}</p>
+      <Todos />
     </div>
   );
 }

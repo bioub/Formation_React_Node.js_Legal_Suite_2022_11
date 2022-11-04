@@ -19,6 +19,7 @@ function hello(name) {
 // Programmation fonctionnelle
 // où les fonctions remplacent les boucles et les if
 names
+//.filter(function (name) { return name.length === 4 })
   .filter((name) => name.length === 4)
   .map((name) => name.toUpperCase())
   .forEach(hello);
