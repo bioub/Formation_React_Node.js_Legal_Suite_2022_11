@@ -1,14 +1,10 @@
 import { Component } from "react";
 
 class ExHelloWorld extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "Romain",
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
+  state = {
+    name: "Romain",
+  };
+  handleChange = (event) => {
     this.setState({
       name: event.target.value,
     });

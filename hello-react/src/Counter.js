@@ -13,8 +13,9 @@ class Counter extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
+    console.log(event);
     this.setState({
-      step: Number(event.target.value),
+      step: event.target.valueAsNumber,
     });
   }
   handleClick() {
@@ -28,7 +29,7 @@ class Counter extends Component {
     const { step, count } = this.state;
     return (
       <div className="Counter">
-        <input type="text" name="step" value={step} onChange={this.handleChange} />
+        <input type="number" name="step" value={step} onChange={this.handleChange} />
         <button onClick={this.handleClick}>
           {count}
         </button>

@@ -1,4 +1,4 @@
-// REST Params
+// REST Params ES2015
 // Conversion syntaxique
 // Une liste de valeurs (ici 3, 4)
 // vers
@@ -15,7 +15,7 @@ function sum(a, b, ...nbs) {
 
 console.log(sum(1, 2, 3, 4)); // 10
 
-// SPREAD operator
+// SPREAD operator ES2015
 // Conversion syntaxique
 // Un tableau (ici [3, 4])
 // vers
@@ -58,5 +58,5 @@ const coords = { x: 1, y: 2 };
 // const { x: x, y: y, z: z = 0 } = coords;
 const { x, y, z = 0 } = coords;
 
-const cloneCoords = { ...coords } // SPREAD
-const { z: valZ, ...coords2d } = coords; // REST
+const cloneCoords = { ...coords } // SPREAD Object ES2018
+const { z: valZ, ...coords2d } = coords; // REST Object ES2018

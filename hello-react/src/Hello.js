@@ -45,7 +45,7 @@
 // }
 
 // En destructurant props
-function Hello({ name = 'Romain', age = 0, active = false }) {
+function Hello({ name = 'Romain', age = 0, isTrainer = false }) {
   return (
     <div className="Hello">
       Hello <span id="name">{name}</span>

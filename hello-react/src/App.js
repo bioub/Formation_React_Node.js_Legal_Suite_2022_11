@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Hello name={prenom} /> {/* React.createElement(Hello, { name: 'Toto' }) */}
       <Hello name={"Romain"} />
-      <Hello name="Romain" age={20} active />
+      <Hello name="Romain" age={20} isTrainer />
       <Clock format="HH:mm" />
       <Counter />
       <Counter />

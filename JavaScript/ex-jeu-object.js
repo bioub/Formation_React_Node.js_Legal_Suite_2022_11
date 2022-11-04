@@ -20,6 +20,7 @@ const Random = {
 const readline = require('readline');
 
 class Jeu {
+  // constructor({ min = 0, max = 100 } = {}) {
   constructor(options = {}) {
     const min = options.min ?? 0;
     const max = options.max ?? 100;
