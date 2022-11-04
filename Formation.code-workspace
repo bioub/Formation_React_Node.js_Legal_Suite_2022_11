@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "Redux"
+		},
+		{
+			"path": "react-redux"
 		}
 	],
 	"settings": {}
