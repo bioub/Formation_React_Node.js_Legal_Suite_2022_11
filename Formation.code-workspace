@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "hello-react"
+		},
+		{
+			"path": "Redux"
 		}
 	],
 	"settings": {}
