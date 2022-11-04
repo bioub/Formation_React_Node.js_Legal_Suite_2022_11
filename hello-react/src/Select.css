@@ -1,0 +1,16 @@
+.selected {
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu {
+  border: 1px solid black;
+  user-select: none;
+}
+
+.item {
+  padding: 5px;
+  cursor: pointer;
+}

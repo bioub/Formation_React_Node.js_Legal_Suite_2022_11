@@ -22,6 +22,12 @@
 
 // React sans JSX
 // function Hello() {
+// let trainerEl;
+
+// if (isTrainer) {
+//   trainerEl = React.createElement("span", {}, "Im a trainer");
+// }
+
 //   return React.createElement(
 //     'div',
 //     { className: 'Hello' },
@@ -31,6 +37,7 @@
 //       { id: 'name' },
 //       'Romain'
 //     )
+//     , trainerEl
 //   );
 // }
 
@@ -45,10 +52,38 @@
 // }
 
 // En destructurant props
-function Hello({ name = 'Romain', age = 0, isTrainer = false }) {
+// function Hello({ name = "Romain", age = 0, isTrainer = false }) {
+//   let trainerEl;
+
+//   if (isTrainer) {
+//     trainerEl = <span>I'm a trainer</span>;
+//   }
+
+//   return (
+//     <div className="Hello">
+//       Hello <span id="name">{name}</span>
+//       {' '}
+//       {trainerEl}
+//     </div>
+//   );
+// }
+
+// function Hello({ name = "Romain", age = 0, isTrainer = false }) {
+//   return (
+//     <div className="Hello">
+//       Hello <span id="name">{name}</span>
+//       {' '}
+//       {isTrainer && <span>I'm a trainer</span>}
+//     </div>
+//   );
+// }
+
+function Hello({ name = "Romain", age = 0, isTrainer = false }) {
   return (
     <div className="Hello">
       Hello <span id="name">{name}</span>
+      {' '}
+      {isTrainer ? <span>I'm a trainer</span> : <span>I'm not a trainer</span>}
     </div>
   );
 }

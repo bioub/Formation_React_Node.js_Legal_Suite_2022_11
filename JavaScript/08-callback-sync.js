@@ -7,7 +7,7 @@ const names = ['Romain', 'Jean', 'Eric'];
 
 
 function hello(name) {
-  console.log(`Hello ${name.toUpperCase()}`);
+  console.log(`Hello ${name}`);
 }
 
 // for (const n of names) {
@@ -20,7 +20,14 @@ function hello(name) {
 // où les fonctions remplacent les boucles et les if
 names
   .filter((name) => name.length === 4)
+  .map((name) => name.toUpperCase())
   .forEach(hello);
+
+// [
+//   'Jean', -> (name) => name.toUpperCase() -> 'JEAN'
+//   'Eric' -> (name) => name.toUpperCase() -> 'ERIC'
+// ]
+//
 
 // pile d'appels
 // ^
