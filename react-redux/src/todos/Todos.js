@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo } from "../store/actions";
+import { addTodo, deleteTodo, inputChange } from "../store/actions";
 import { todosSelector } from "../store/selectors";
 import TodoForm from "./TodoForm";
 import TodosList from "./TodosList";
@@ -46,22 +46,19 @@ function Todos() {
 }
 */
 function Todos() {
-  const newTodo = '';
-  // Exercice utilise useSelector
-  // const newTodo = useSelector()
-  const items = useSelector(todosSelector).items;
+  const { newTodo, items } = useSelector(todosSelector);
   const dispatch = useDispatch();
 
   const handleNewTodoChange = (newTodo) => {
-    // Exercice faire le dispatch de l'action
+    dispatch(inputChange(newTodo));
   };
 
   const handleAdd = () => {
-    // Exercice faire le dispatch de l'action
+    dispatch(addTodo({ id: Math.random(), title: newTodo, completed: false }));
   };
 
   const handleDelete = (todo) => {
-    dispatch(deleteTodo(todo))
+    dispatch(deleteTodo(todo));
   };
 
   return (
