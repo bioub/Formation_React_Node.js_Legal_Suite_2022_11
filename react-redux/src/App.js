@@ -1,33 +1,54 @@
-import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Layout from './Layout';
+import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Layout from "./Layout";
+import Todos from "./todos/Todos";
+import Users from "./users/Users";
+import UserAdd from "./users/UserAdd";
+import UserDetails from "./users/UserDetails";
 
 // const router = createBrowserRouter([
-  // {
-  //   path: '/',
-  //   element: <Home />
-  // },
-  // {
-  //   path: '/about',
-  //   element: <About />
-  // }
+// {
+//   path: '/',
+//   element: <Home />
+// },
+// {
+//   path: '/about',
+//   element: <About />
+// }
 // ]);
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <Layout />,
     children: [
       {
-        path: '',
-        element: <Home />
+        path: "",
+        element: <Home />,
       },
       {
-        path: 'about',
-        element: <About />
-      }
-    ]
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "todos",
+        element: <Todos />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+        children: [
+          {
+            path: "add",
+            element: <UserAdd />,
+          },
+          {
+            path: ":userId",
+            element: <UserDetails />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 

@@ -1,0 +1,10 @@
+nav {
+  background-color: lightblue;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  padding: 5px;
+}
