@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-class Counter extends Component {
+class CounterUncontrolled extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,7 +28,7 @@ class Counter extends Component {
   render() {
     const { step, count } = this.state;
     return (
-      <div className="Counter">
+      <div className="CounterUncontrolled">
         <input type="number" name="step" value={step} onChange={this.handleChange} />
         <button onClick={this.handleClick}>
           {count}
@@ -38,4 +38,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default CounterUncontrolled;

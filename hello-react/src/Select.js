@@ -17,7 +17,7 @@ class Select extends Component {
   handleItemClick = (el) => {
     const { onSelected } = this.props;
     onSelected(el);
-  }
+  };
   render() {
     const { selected, items, onSelected } = this.props;
     const { menuOpen } = this.state;
@@ -32,11 +32,17 @@ class Select extends Component {
     // for (const item of items) {
     //   itemsEls.push(<div>{item}</div>)
     // }
-    const itemsEls = items.map((el) => <div className="item" key={el} onClick={() => this.handleItemClick(el)}>{el}</div>);
+    const itemsEls = items.map((el) => (
+      <div className="item" key={el} onClick={() => this.handleItemClick(el)}>
+        {el}
+      </div>
+    ));
 
     return (
       <div className="Select">
-        <div className="selected" onClick={this.handleSelectedClick}>{selected}</div>
+        <div className="selected" onClick={this.handleSelectedClick}>
+          {selected}
+        </div>
         {menuOpen && <div className="menu">{itemsEls}</div>}
       </div>
     );

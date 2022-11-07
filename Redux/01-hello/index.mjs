@@ -5,6 +5,12 @@ const initialState = {
   step: 1,
 };
 
+// Fonction Pure
+// - prédictive, appelée avec des params donnés elle aura toujours le même retour
+// ex de fct prédictive : sum(1, 2) === 3
+// ex de fct non prédictive : Date.now() === ???, Math.random() === ???
+// - ne pas modifier ses paramètres (retourner le nouveau state)
+// - pas de side effect, pas de requete HTTP, pas d'appel à du stockage...
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'increment':
