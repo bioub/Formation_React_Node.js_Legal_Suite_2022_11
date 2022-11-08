@@ -1,24 +1,31 @@
 {
 	"folders": [
 		{
+			"name": "JavaScript",
 			"path": "JavaScript"
 		},
 		{
-			"path": "Modules-ECMAScript"
+			"name": "Modules",
+			"path": "Modules"
 		},
 		{
+			"name": "hello-react",
 			"path": "hello-react"
 		},
 		{
+			"name": "Redux",
 			"path": "Redux"
 		},
 		{
+			"name": "react-redux",
 			"path": "react-redux"
 		},
 		{
+			"name": "Node.js",
 			"path": "Node.js"
 		},
 		{
+			"name": "Exercice-Build",
 			"path": "Exercice-Build"
 		}
 	],
