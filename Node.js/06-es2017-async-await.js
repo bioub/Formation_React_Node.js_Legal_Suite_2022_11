@@ -1,5 +1,13 @@
 const fs = require("fs/promises");
 
+// try {
+//   const buffer = fs.readFileSync(".editorconfig");
+//   fs.writeFileSync(".editorconfig.copy", buffer);
+//   console.log("Copy done");
+// } catch (err) {
+//   console.log(err);
+// }
+
 async function copyEditorConfig() {
   try {
     const buffer = await fs.readFile(".editorconfig");

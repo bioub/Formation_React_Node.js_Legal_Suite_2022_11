@@ -3,6 +3,7 @@ console.log(process.env.PATH.split(':').find((path) => path.includes('node')));
 
 if (process.env.NODE_ENV === 'production') {
   // code de production uniquement
+  console.log('production');
 }
 
 // arguments et options de la commande :

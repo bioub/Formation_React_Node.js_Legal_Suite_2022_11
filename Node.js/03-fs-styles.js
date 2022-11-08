@@ -24,5 +24,5 @@ fsp.readFile('.editorconfig').then((buffer) => {
 // ^
 // |
 // |
-// |[readFile] ⟳                          [log]
+// |[readFile] ⟳                         [log]
 // +------------------------------------------->
