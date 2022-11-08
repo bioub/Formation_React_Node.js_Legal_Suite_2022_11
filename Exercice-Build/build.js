@@ -20,9 +20,18 @@ async function rmAndMkdir() {
 }
 
 async function buildJs() {
-  const bufferHorloge = await fs.readFile(horlogeJsPath);
-  const bufferIndex = await fs.readFile(indexJsPath);
-  let content = Buffer.concat([bufferHorloge, bufferIndex]);
+  // ici on lit le fichier 1 d'abord, puis le 2
+  // const bufferHorloge = await fs.readFile(horlogeJsPath);
+  // const bufferIndex = await fs.readFile(indexJsPath);
+  // let content = Buffer.concat([bufferHorloge, bufferIndex]);
+
+  // ici on lit les 2 fichiers en même temps
+  const buffers = await Promise.all([
+    fs.readFile(horlogeJsPath),
+    fs.readFile(indexJsPath)
+  ]);
+  let content = Buffer.concat(buffers);
+
   let hash = '';
 
   if (argv.minify) {
