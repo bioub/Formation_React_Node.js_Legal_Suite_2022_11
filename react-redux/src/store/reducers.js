@@ -1,8 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addTodo, deleteTodo, inputChange } from "./actions";
+import { addTodo, deleteTodo, fetchAllTodos, fetchAllTodosSuccess, inputChange } from "./actions";
 
 const initialState = {
   todos: {
+    loading: false,
     newTodo: "Acheter du p",
     items: [
       {
@@ -45,5 +46,17 @@ export const todosReducer = createReducer(initialState.todos, (builder) => {
     .addCase(inputChange, (state, action) => {
       state.newTodo = action.payload;
       return state;
+    })
+    .addCase(fetchAllTodos, (state, action) => {
+      state.loading = true;
+      state.items = [];
+      return state;
+    })
+    .addCase(fetchAllTodosSuccess, (state, action) => {
+      state.loading = false;
+      state.items = action.payload;
+      return state;
     });
+    // Exercice
+    // traiter les 2 actions (agir sur loading et items)
 });
