@@ -67,10 +67,14 @@ async function buildHtml(hash) {
 }
 
 async function main() {
-  await rmAndMkdir();
-  const hash = await buildJs();
-  await buildHtml(hash);
-  console.log('build DONE');
+  try {
+    await rmAndMkdir();
+    const hash = await buildJs();
+    await buildHtml(hash);
+    console.log('build DONE');
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
 main();

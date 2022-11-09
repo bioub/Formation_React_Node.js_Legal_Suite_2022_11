@@ -41,7 +41,7 @@ class UserService {
     //   resolve([{id: 1, name: 'Toto'}, {id: 2, name: 'Titi'}]);
     // });
     // on peut simplifier avec
-    Promise.resolve([
+    return Promise.resolve([
       { id: 1, name: "Toto" },
       { id: 2, name: "Titi" },
     ]);
@@ -87,8 +87,6 @@ class UserService {
 // use case : 1 requete et un timeout, permet de limiter la requete
 // si la requete est trop longue on s'arrete au timeout
 (async function() {
-  // le retour est dans le même ordre que la création
-  // (pas dans l'ordre des résolutions)
   const val = await Promise.race([
     timeout(Math.random() * 1000, "Value 1 Promise.race"),
     timeout(Math.random() * 1000, "Value 2 Promise.race"),
@@ -122,8 +120,6 @@ class UserService {
 // use case : on envoit plusieurs ping vers plusieurs serveurs
 // pour connaitre le plus rapide
 (async function() {
-  // le retour est dans le même ordre que la création
-  // (pas dans l'ordre des résolutions)
   const val = await Promise.any([
     timeout(Math.random() * 1000, "Value 1 Promise.any"),
     timeout(Math.random() * 1000, "Value 2 Promise.any"),
@@ -141,7 +137,8 @@ class UserService {
 // WebSocket
 // Worker (thread)
 
-// 2 solutions
+// 3 solutions
+// -> streams
 // -> Observable (lib RxJS -> Angular)
 // -> Async iterator (Deno)
 // for await (const conn of Deno.listen({ port: 80 })) {
