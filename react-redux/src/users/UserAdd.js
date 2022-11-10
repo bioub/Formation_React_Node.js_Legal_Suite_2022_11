@@ -34,7 +34,7 @@ function UserAdd({}) {
       <p>
         Password:
         <input type="password" {...register("password", { required: true })} />
-        {errors.username && <span>Username is required</span>}
+        {errors.password && <span>Password is required</span>}
       </p>
 
       <p>
