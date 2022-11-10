@@ -3,7 +3,8 @@ import express from 'express';
 const app = express();
 
 // enregistrer un middleware (plugin express)
-app.use(express.json());
+app.use(express.json()); // ne fait rien si pas de
+// Content-type: application/json
 
 app.get('/', (req, res) => {
   res.send('<p>Home page</p>');

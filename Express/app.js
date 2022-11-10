@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 //   next();
 // });
 
-// CORS Middleware (cross-domain requests)
+// CORS Middleware (cross-origin requests)
 app.use(cors());
 
 // Routes

@@ -15,7 +15,7 @@ function TodosList({ items = [], onDelete }) {
   // ]
   return (
     <div className="TodosList">
-      {items.map((item) => <TodoItem key={item.id} todo={item} onDelete={onDelete} />)}
+      {items.map((item) => <TodoItem key={item._id} todo={item} onDelete={onDelete} />)}
     </div>
   );
 }

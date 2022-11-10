@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo, fetchAllTodos, fetchAllTodosSuccess, inputChange } from "../store/actions";
+import {
+  addTodo,
+  deleteTodo,
+  deleteTodoSuccess,
+  fetchAllTodos,
+  fetchAllTodosSuccess,
+  inputChange,
+  postTodo,
+  postTodoSuccess,
+} from "../store/actions";
 import { todosSelector } from "../store/selectors";
 import TodoForm from "./TodoForm";
 import TodosList from "./TodosList";
@@ -50,7 +59,7 @@ function Todos() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('componentDidMount');
+    console.log("componentDidMount");
     // const request = new Request();
     // fetch(request)
 
@@ -58,14 +67,14 @@ function Todos() {
 
     dispatch(fetchAllTodos());
     // Si requete basiques de type GET le plus court :
-    fetch('http://localhost:4000/api/todos')
+    fetch("http://localhost:4000/api/todos")
       .then((res) => res.json())
       .then((data) => {
         dispatch(fetchAllTodosSuccess(data));
       });
 
     return () => {
-      console.log('componentWillUnmount');
+      console.log("componentWillUnmount");
     };
   }, [dispatch]);
 
@@ -74,17 +83,34 @@ function Todos() {
   };
 
   const handleAdd = () => {
-    dispatch(addTodo({ id: Math.random(), title: newTodo, completed: false }));
+    // dispatch(addTodo({ id: Math.random(), title: newTodo, completed: false }));
+    const todo = { title: newTodo };
 
-    // Exercice
-    // Utiliser fetch sous la forme fetch(url, { method: 'POST', body: JSON.stringify(LA TODO A INSERER), headers: { 'Content-type': 'application/json' } })
+    dispatch(postTodo());
+    fetch("http://localhost:4000/api/todos", {
+      method: "POST",
+      body: JSON.stringify(todo),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(postTodoSuccess(data));
+      });
   };
 
   const handleDelete = (todo) => {
-    dispatch(deleteTodo(todo));
+    //dispatch(deleteTodo(todo));
 
     // Exercice Optionnel
     // Faire de même avec le delete de la todo
+    dispatch(postTodo());
+    fetch("http://localhost:4000/api/todos/"+todo._id, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(deleteTodoSuccess(data));
+      });
   };
 
   return (
