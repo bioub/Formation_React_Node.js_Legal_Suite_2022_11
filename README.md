@@ -63,4 +63,4 @@ Dans le composant `UserDetails` utiliser le même sélecteur que dans `Users.js`
 
 Utiliser le hooks `useParams` de React Router pour récupérer l'id du user dans l'URL et afficher votre User : [https://reactrouter.com/en/main/hooks/use-params](https://reactrouter.com/en/main/hooks/use-params)
 
-Dans le composant `UserAdd` créer un formulaire et utiliser les actions `postUser` et `postUserSuccess` pour créer l'utilisateur en base. Une fois l'utilisateur créé, utiliser `useLocation` et `location.push` pour afficher la fiche de l'utilisateur créé (composant `UserDetails`) : [https://reactrouter.com/en/main/hooks/use-location](https://reactrouter.com/en/main/hooks/use-location)
+Dans le composant `UserAdd` créer un formulaire et utiliser les actions `postUser` et `postUserSuccess` pour créer l'utilisateur en base. Une fois l'utilisateur créé, utiliser `useNavigate` et rediriger vers le composant `UserDetails` avec l'id de l'utilisateur qui vient d'être créé : [https://reactrouter.com/en/main/hooks/use-navigate](https://reactrouter.com/en/main/hooks/use-navigate)
