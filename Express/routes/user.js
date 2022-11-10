@@ -9,4 +9,25 @@ router.post('/login',
   userCtrl.login
 );
 
+
+// prettier-ignore
+router.get('/',
+  express.json(),
+  userCtrl.list
+);
+
+
+// prettier-ignore
+router.post('/',
+  express.json(),
+  userCtrl.add
+);
+
+
+// prettier-ignore
+router.get('/:userId',
+  express.json(),
+  userCtrl.show
+);
+
 module.exports = router;
