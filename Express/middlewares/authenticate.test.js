@@ -1,3 +1,4 @@
+const { tokens } = require("../models/user");
 const authenticate = require("./authenticate");
 
 test('authenticate respond 401 if wrong token', () => {
@@ -24,3 +25,20 @@ Vérifier que si le token est bon la fonction next est appelée
 - soit utiliser le token par défaut 'd4973653-9895-4123-a7dd-3e1387d0fbde'
 - soit insérer un token et tester ensuite (recommandé)
 */
+
+test('authenticate should call next when token is valid', () => {
+  const req = {
+    headers: {
+      authorization: 'good-token'
+    }
+  };
+
+  tokens.push('good-token');
+
+  const res = {};
+  const next = jest.fn();
+
+  authenticate(req, res, next);
+
+  expect(next).toHaveBeenCalledWith();
+});

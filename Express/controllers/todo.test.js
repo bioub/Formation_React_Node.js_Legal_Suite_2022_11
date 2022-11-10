@@ -1,6 +1,6 @@
 jest.mock("../models/todo");
 
-const { list } = require("./todo");
+const { list, show } = require("./todo");
 const Todo = require("../models/todo");
 
 // test("list respond data (Fake)", async () => {
@@ -55,3 +55,55 @@ le cas où next()
 le cas où next(err)
 */
 
+test("show respond todo", async () => {
+  Todo.findById.mockResolvedValue({ id: 123, title: "ABC" });
+
+  const req = {
+    params: {
+      id: '123'
+    }
+  };
+
+  const res = {
+    json: jest.fn(),
+  };
+
+  await show(req, res);
+
+  expect(res.json).toHaveBeenCalledWith({ id: 123, title: "ABC" });
+});
+
+test("show calls next", async () => {
+  Todo.findById.mockResolvedValue(null);
+
+  const req = {
+    params: {
+      id: '123124'
+    }
+  };
+
+  const res = {};
+
+  const next = jest.fn();
+
+  await show(req, res, next);
+
+  expect(next).toHaveBeenCalledWith();
+});
+
+test("show calls next with error", async () => {
+  Todo.findById.mockRejectedValue(new Error('an error'));
+  const req = {
+    params: {
+      id: '123124'
+    }
+  };
+
+  const res = {};
+
+  const next = jest.fn();
+
+  await show(req, res, next);
+
+  expect(next).toHaveBeenCalledWith(new Error('an error'));
+});
