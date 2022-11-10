@@ -1,7 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addTodo, deleteTodo, deleteTodoSuccess, fetchAllTodos, fetchAllTodosSuccess, inputChange, postTodo, postTodoSuccess } from "./actions";
+import { addTodo, deleteTodo, deleteTodoSuccess, fetchAllTodos, fetchAllTodosSuccess, fetchAllUsers, fetchAllUsersSuccess, inputChange, postTodo, postTodoSuccess, postUser, postUserSuccess } from "./actions";
 
 const initialState = {
+  users: {
+    loading: false,
+    items: [],
+  },
   todos: {
     loading: false,
     newTodo: "",
@@ -78,4 +82,28 @@ export const todosReducer = createReducer(initialState.todos, (builder) => {
     })
     // Exercice
     // traiter les 2 actions (agir sur loading et items)
+});
+
+
+export const usersReducer = createReducer(initialState.users, (builder) => {
+  builder
+    .addCase(fetchAllUsers, (state, action) => {
+      state.loading = true;
+      state.items = [];
+      return state;
+    })
+    .addCase(fetchAllUsersSuccess, (state, action) => {
+      state.loading = false;
+      state.items = action.payload;
+      return state;
+    })
+    .addCase(postUser, (state, action) => {
+      state.loading = true;
+      return state;
+    })
+    .addCase(postUserSuccess, (state, action) => {
+      state.loading = false;
+      state.items.push(action.payload);
+      return state;
+    });
 });
